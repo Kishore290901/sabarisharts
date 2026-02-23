@@ -7,12 +7,15 @@ import {
   PenTool, Figma, BookMarked, Globe, Share2, UtensilsCrossed,
   Monitor, LayoutGrid, Award
 } from "lucide-react";
+import svcAdvertising from "@/assets/svc-advertising.jpg";
+import svcPrinting from "@/assets/svc-printing.jpg";
+import svcDesigning from "@/assets/svc-designing.jpg";
 
 const categories = [
   {
     name: "Advertising",
     icon: Megaphone,
-    color: "primary",
+    image: svcAdvertising,
     services: [
       { name: "Flex Board", icon: RectangleHorizontal },
       { name: "LED Board", icon: Lightbulb },
@@ -29,7 +32,7 @@ const categories = [
   {
     name: "Printing",
     icon: Printer,
-    color: "accent",
+    image: svcPrinting,
     services: [
       { name: "Visiting Card", icon: CreditCard },
       { name: "Letterhead", icon: FileText },
@@ -44,7 +47,7 @@ const categories = [
   {
     name: "Designing",
     icon: Palette,
-    color: "brand",
+    image: svcDesigning,
     services: [
       { name: "Graphic Design", icon: PenTool },
       { name: "Logo Design", icon: Figma },
@@ -66,7 +69,6 @@ export default function ServicesSection() {
 
   return (
     <section id="services" className="section-padding relative">
-      {/* Subtle neon line */}
       <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
@@ -94,6 +96,17 @@ export default function ServicesSection() {
                 {cat.name}
               </button>
             ))}
+          </div>
+        </AnimatedSection>
+
+        {/* Category image banner */}
+        <AnimatedSection delay={50}>
+          <div className="mb-8 rounded-2xl overflow-hidden h-48 sm:h-64">
+            <img
+              src={active.image}
+              alt={active.name}
+              className="w-full h-full object-cover"
+            />
           </div>
         </AnimatedSection>
 

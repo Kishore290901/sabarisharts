@@ -1,18 +1,23 @@
 import { useState } from "react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { X } from "lucide-react";
+import portHoarding from "@/assets/port-hoarding.jpg";
+import portFlex from "@/assets/port-flex.jpg";
+import portBranding from "@/assets/port-branding.jpg";
+import portSocial from "@/assets/port-social.jpg";
+import portVehicle from "@/assets/port-vehicle.jpg";
 
 const filters = ["All", "Hoardings", "Flex Boards", "Branding", "Social Media", "Vehicle Ads"];
 
 const portfolioItems = [
-  { title: "City Hoarding Campaign", category: "Hoardings", color: "from-primary/30 to-accent/20" },
-  { title: "Flex Board – Retail Store", category: "Flex Boards", color: "from-accent/30 to-primary/20" },
-  { title: "Corporate Branding Package", category: "Branding", color: "from-brand-blue/30 to-primary/20" },
-  { title: "Social Media Campaign", category: "Social Media", color: "from-primary/20 to-accent/30" },
-  { title: "Bus Wrap Advertising", category: "Vehicle Ads", color: "from-accent/20 to-brand-blue/30" },
-  { title: "Highway Hoarding", category: "Hoardings", color: "from-brand-blue/20 to-accent/30" },
-  { title: "Restaurant Branding", category: "Branding", color: "from-primary/30 to-brand-blue/20" },
-  { title: "Instagram Post Design", category: "Social Media", color: "from-accent/30 to-primary/30" },
+  { title: "City Hoarding Campaign", category: "Hoardings", image: portHoarding },
+  { title: "Flex Board – Retail Store", category: "Flex Boards", image: portFlex },
+  { title: "Corporate Branding Package", category: "Branding", image: portBranding },
+  { title: "Social Media Campaign", category: "Social Media", image: portSocial },
+  { title: "Bus Wrap Advertising", category: "Vehicle Ads", image: portVehicle },
+  { title: "Highway Hoarding", category: "Hoardings", image: portHoarding },
+  { title: "Restaurant Branding", category: "Branding", image: portBranding },
+  { title: "Instagram Post Design", category: "Social Media", image: portSocial },
 ];
 
 export default function PortfolioSection() {
@@ -54,11 +59,19 @@ export default function PortfolioSection() {
             <AnimatedSection key={item.title + i} delay={i * 80}>
               <div
                 onClick={() => setLightbox(i)}
-                className={`aspect-[4/3] rounded-2xl bg-gradient-to-br ${item.color} glass cursor-pointer hover:scale-105 hover:neon-border transition-all duration-300 flex items-center justify-center p-4`}
+                className="aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer hover:scale-105 hover:neon-border transition-all duration-300 relative group"
               >
-                <div className="text-center">
-                  <p className="font-heading font-bold text-sm sm:text-base text-foreground">{item.title}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{item.category}</p>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="text-center">
+                    <p className="font-heading font-bold text-sm sm:text-base text-foreground">{item.title}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{item.category}</p>
+                  </div>
                 </div>
               </div>
             </AnimatedSection>
@@ -75,9 +88,14 @@ export default function PortfolioSection() {
           <button className="absolute top-6 right-6 text-foreground" onClick={() => setLightbox(null)}>
             <X size={28} />
           </button>
-          <div className={`max-w-lg w-full aspect-[4/3] rounded-3xl bg-gradient-to-br ${filtered[lightbox].color} glass flex items-center justify-center p-8`}>
-            <div className="text-center">
-              <h3 className="font-heading font-bold text-2xl mb-2">{filtered[lightbox].title}</h3>
+          <div className="max-w-2xl w-full rounded-3xl overflow-hidden">
+            <img
+              src={filtered[lightbox].image}
+              alt={filtered[lightbox].title}
+              className="w-full aspect-[4/3] object-cover"
+            />
+            <div className="glass p-6 text-center">
+              <h3 className="font-heading font-bold text-2xl mb-1">{filtered[lightbox].title}</h3>
               <p className="text-muted-foreground">{filtered[lightbox].category}</p>
             </div>
           </div>

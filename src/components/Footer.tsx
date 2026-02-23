@@ -1,4 +1,5 @@
 import logo from "@/assets/logo.jpeg";
+import logoText from "@/assets/logo-text.jpeg";
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 
 const quickLinks = ["Home", "About", "Services", "Portfolio", "Contact"];
@@ -13,7 +14,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img src={logo} alt="Sabharish Arts" className="h-10 w-10 rounded-full" />
-              <span className="font-heading font-bold text-lg">Sabharish <span className="text-primary">Arts</span></span>
+              <img src={logoText} alt="Sabharish Arts" className="h-7 object-contain" />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Premium Advertising, Printing & Branding Agency serving Chennai & Coimbatore.
