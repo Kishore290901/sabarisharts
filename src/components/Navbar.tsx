@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
+import logoText from "@/assets/logo-text.jpeg";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -31,9 +32,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#home" className="flex items-center gap-3">
             <img src={logo} alt="Sabharish Arts" className="h-10 w-10 rounded-full" />
-            <span className="font-heading font-bold text-lg text-foreground">
-              Sabharish <span className="text-primary">Arts</span>
-            </span>
+            <img src={logoText} alt="Sabharish Arts" className="h-7 object-contain" />
           </a>
 
           {/* Desktop */}

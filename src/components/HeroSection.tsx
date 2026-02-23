@@ -1,18 +1,51 @@
-import heroBg from "@/assets/hero-bg.jpg";
+import { useState, useEffect, useCallback } from "react";
+import heroImg1 from "@/assets/hero-1.jpg";
+import heroImg2 from "@/assets/hero-2.jpg";
+import heroImg3 from "@/assets/hero-3.jpg";
 import logoText from "@/assets/logo-text.jpeg";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const slides = [
+  { image: heroImg1, subtitle: "Outdoor Advertising & Hoardings" },
+  { image: heroImg2, subtitle: "Premium Printing & Branding" },
+  { image: heroImg3, subtitle: "Digital Design & Social Media" },
+];
 
 export default function HeroSection() {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % slides.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, [next]);
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-background/70" />
-      </div>
+      {/* Carousel Background */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img
+            src={slides[current].image}
+            alt={slides[current].subtitle}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/70" />
+        </motion.div>
+      </AnimatePresence>
 
       {/* Neon lines */}
       <div className="absolute top-1/4 left-0 w-1/2 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-40 animate-glow-pulse" />
@@ -22,14 +55,14 @@ export default function HeroSection() {
         <motion.img
           src={logoText}
           alt="Sabharish Arts"
-          className="h-10 sm:h-14 mx-auto mb-6 object-contain"
+          className="h-12 sm:h-16 mx-auto mb-6 object-contain"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         />
 
         <motion.h1
-          className="font-heading text-4xl sm:text-5xl md:text-7xl font-black leading-tight mb-6"
+          className="font-heading text-4xl sm:text-5xl md:text-7xl font-black leading-tight mb-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
@@ -38,6 +71,19 @@ export default function HeroSection() {
           <br />
           Inspiring <span className="gradient-text">Minds</span>
         </motion.h1>
+
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={current}
+            className="text-primary font-semibold text-sm sm:text-base tracking-wide mb-4"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+          >
+            {slides[current].subtitle}
+          </motion.p>
+        </AnimatePresence>
 
         <motion.p
           className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-10"
@@ -68,6 +114,20 @@ export default function HeroSection() {
             View Services
           </a>
         </motion.div>
+
+        {/* Carousel dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                i === current ? "bg-primary w-8" : "bg-muted-foreground/40"
+              }`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Scroll indicator */}
