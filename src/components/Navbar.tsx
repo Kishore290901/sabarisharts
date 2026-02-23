@@ -30,7 +30,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#home" className="flex items-center gap-3">
             <img src={logo} alt="Sabharish Arts" className="h-10 w-10 rounded-full" />
-            <img src={logoText} alt="Sabharish Arts" className="h-7 object-contain" />
+            <img src={logoText} alt="Sabharish Arts" className="h-7 object-contain hidden md:block" />
           </a>
 
           {/* Desktop */}
