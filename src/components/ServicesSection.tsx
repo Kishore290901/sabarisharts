@@ -1,64 +1,81 @@
 import { useState } from "react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
-import {
-  Megaphone, Printer, Palette, RectangleHorizontal, Lightbulb, Zap,
-  Bus, Train, Eye, Car, PaintBucket, Newspaper, Tv, CreditCard,
-  FileText, BadgeCheck, Mail, Image, Package, BookOpen,
-  PenTool, Figma, BookMarked, Globe, Share2, UtensilsCrossed,
-  Monitor, LayoutGrid, Award
-} from "lucide-react";
-import svcAdvertising from "@/assets/svc-advertising.jpg";
-import svcPrinting from "@/assets/svc-printing.jpg";
-import svcDesigning from "@/assets/svc-designing.jpg";
+import { Megaphone, Printer, Palette } from "lucide-react";
+
+import svcFlexBoard from "@/assets/svc/flex-board.jpg";
+import svcLedBoard from "@/assets/svc/led-board.jpg";
+import svcNeonBoard from "@/assets/svc/neon-board.jpg";
+import svcBusBoard from "@/assets/svc/bus-board.jpg";
+import svcRailwayBoard from "@/assets/svc/railway-board.jpg";
+import svcHoarding from "@/assets/svc/hoarding.jpg";
+import svcMobileAuto from "@/assets/svc/mobile-auto.jpg";
+import svcWallPainting from "@/assets/svc/wall-painting.jpg";
+import svcNewspaperAds from "@/assets/svc/newspaper-ads.jpg";
+import svcTvMedia from "@/assets/svc/tv-media.jpg";
+import svcVisitingCard from "@/assets/svc/visiting-card.jpg";
+import svcLetterhead from "@/assets/svc/letterhead.jpg";
+import svcIdCard from "@/assets/svc/id-card.jpg";
+import svcInvitation from "@/assets/svc/invitation.jpg";
+import svcPosters from "@/assets/svc/posters.jpg";
+import svcEnvelopes from "@/assets/svc/envelopes.jpg";
+import svcCatalogues from "@/assets/svc/catalogues.jpg";
+import svcBookWork from "@/assets/svc/book-work.jpg";
+import svcGraphicDesign from "@/assets/svc/graphic-design.jpg";
+import svcLogoDesign from "@/assets/svc/logo-design.jpg";
+import svcBrochure from "@/assets/svc/brochure.jpg";
+import svcEmailFlyer from "@/assets/svc/email-flyer.jpg";
+import svcWebDesign from "@/assets/svc/web-design.jpg";
+import svcSocialMedia from "@/assets/svc/social-media.jpg";
+import svcMenuCard from "@/assets/svc/menu-card.jpg";
+import svcMediaBanner from "@/assets/svc/media-banner.jpg";
+import svcStationeryPkg from "@/assets/svc/stationery-pkg.jpg";
+import svcBrandingPkg from "@/assets/svc/branding-pkg.jpg";
 
 const categories = [
   {
     name: "Advertising",
     icon: Megaphone,
-    image: svcAdvertising,
     services: [
-      { name: "Flex Board", icon: RectangleHorizontal },
-      { name: "LED Board", icon: Lightbulb },
-      { name: "Neon Board", icon: Zap },
-      { name: "Bus Board", icon: Bus },
-      { name: "Railway Board", icon: Train },
-      { name: "Hoarding", icon: Eye },
-      { name: "Mobile Auto Ads", icon: Car },
-      { name: "Wall Painting", icon: PaintBucket },
-      { name: "Newspaper Ads", icon: Newspaper },
-      { name: "TV Media Ads", icon: Tv },
+      { name: "Flex Board", image: svcFlexBoard },
+      { name: "LED Board", image: svcLedBoard },
+      { name: "Neon Board", image: svcNeonBoard },
+      { name: "Bus Board", image: svcBusBoard },
+      { name: "Railway Board", image: svcRailwayBoard },
+      { name: "Hoarding", image: svcHoarding },
+      { name: "Mobile Auto Ads", image: svcMobileAuto },
+      { name: "Wall Painting", image: svcWallPainting },
+      { name: "Newspaper Ads", image: svcNewspaperAds },
+      { name: "TV Media Ads", image: svcTvMedia },
     ],
   },
   {
     name: "Printing",
     icon: Printer,
-    image: svcPrinting,
     services: [
-      { name: "Visiting Card", icon: CreditCard },
-      { name: "Letterhead", icon: FileText },
-      { name: "ID Card", icon: BadgeCheck },
-      { name: "Invitation", icon: Mail },
-      { name: "Posters", icon: Image },
-      { name: "Envelopes", icon: Mail },
-      { name: "Catalogues", icon: BookMarked },
-      { name: "Book Work", icon: BookOpen },
+      { name: "Visiting Card", image: svcVisitingCard },
+      { name: "Letterhead", image: svcLetterhead },
+      { name: "ID Card", image: svcIdCard },
+      { name: "Invitation", image: svcInvitation },
+      { name: "Posters", image: svcPosters },
+      { name: "Envelopes", image: svcEnvelopes },
+      { name: "Catalogues", image: svcCatalogues },
+      { name: "Book Work", image: svcBookWork },
     ],
   },
   {
     name: "Designing",
     icon: Palette,
-    image: svcDesigning,
     services: [
-      { name: "Graphic Design", icon: PenTool },
-      { name: "Logo Design", icon: Figma },
-      { name: "Brochure", icon: BookMarked },
-      { name: "Email Flyer", icon: Mail },
-      { name: "Web Design", icon: Globe },
-      { name: "Social Media Post", icon: Share2 },
-      { name: "Menu Card", icon: UtensilsCrossed },
-      { name: "Media Banner", icon: Monitor },
-      { name: "Stationary Package", icon: LayoutGrid },
-      { name: "Branding Package", icon: Award },
+      { name: "Graphic Design", image: svcGraphicDesign },
+      { name: "Logo Design", image: svcLogoDesign },
+      { name: "Brochure", image: svcBrochure },
+      { name: "Email Flyer", image: svcEmailFlyer },
+      { name: "Web Design", image: svcWebDesign },
+      { name: "Social Media Post", image: svcSocialMedia },
+      { name: "Menu Card", image: svcMenuCard },
+      { name: "Media Banner", image: svcMediaBanner },
+      { name: "Stationary Package", image: svcStationeryPkg },
+      { name: "Branding Package", image: svcBrandingPkg },
     ],
   },
 ];
@@ -99,26 +116,22 @@ export default function ServicesSection() {
           </div>
         </AnimatedSection>
 
-        {/* Category image banner */}
-        <AnimatedSection delay={50}>
-          <div className="mb-8 rounded-2xl overflow-hidden h-48 sm:h-64">
-            <img
-              src={active.image}
-              alt={active.name}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </AnimatedSection>
-
-        {/* Service grid */}
+        {/* Service grid with images */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {active.services.map((svc, i) => (
             <AnimatedSection key={svc.name} delay={i * 50}>
-              <div className="glass rounded-2xl p-5 text-center hover:neon-border hover:scale-105 transition-all duration-300 cursor-pointer group">
-                <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                  <svc.icon size={22} className="text-primary" />
+              <div className="glass rounded-2xl overflow-hidden hover:neon-border hover:scale-105 transition-all duration-300 cursor-pointer group">
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={svc.image}
+                    alt={svc.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
                 </div>
-                <p className="text-sm font-medium text-foreground">{svc.name}</p>
+                <div className="p-3 text-center">
+                  <p className="text-sm font-medium text-foreground">{svc.name}</p>
+                </div>
               </div>
             </AnimatedSection>
           ))}
