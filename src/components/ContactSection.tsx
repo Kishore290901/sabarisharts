@@ -32,8 +32,8 @@ export default function ContactSection() {
               {[
                 { icon: Phone, label: "Phone", lines: ["90806 83319", "94890 56120"] },
                 { icon: Mail, label: "Email", lines: ["sabharisharts2020@gmail.com"] },
-                { icon: MapPin, label: "Chennai", lines: ["KK Nagar, Chennai"] },
-                { icon: MapPin, label: "Coimbatore", lines: ["Ramnagar, Coimbatore"] },
+                { icon: MapPin, label: "Chennai", lines: ["Chennai"] },
+                { icon: MapPin, label: "Coimbatore", lines: ["Coimbatore"] },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-4">
                   <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -48,19 +48,6 @@ export default function ContactSection() {
                 </div>
               ))}
 
-              {/* Map */}
-              <div className="rounded-2xl overflow-hidden neon-border mt-6">
-                <iframe
-                  title="Sabharish Arts Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.8!2d80.22!3d13.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAyJzI0LjAiTiA4MMKwMTMnMTIuMCJF!5e0!3m2!1sen!2sin!4v1"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
             </div>
           </AnimatedSection>
 
