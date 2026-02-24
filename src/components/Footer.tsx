@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img src={logo} alt="Sabharish Arts" className="h-10 w-10 rounded-full" />
-              <img src={logoText} alt="Sabharish Arts" className="h-7 object-contain" />
+              
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
               Premium Advertising, Printing & Branding Agency serving Chennai & Coimbatore.
@@ -25,13 +25,13 @@ export default function Footer() {
           <div>
             <h4 className="font-heading font-bold text-sm mb-4 text-gray-900">Quick Links</h4>
             <ul className="space-y-2">
-              {quickLinks.map((l) => (
-                <li key={l}>
+              {quickLinks.map((l) =>
+              <li key={l}>
                   <a href={`#${l.toLowerCase()}`} className="text-sm text-gray-600 hover:text-primary transition-colors">
                     {l}
                   </a>
                 </li>
-              ))}
+              )}
             </ul>
           </div>
 
@@ -39,13 +39,13 @@ export default function Footer() {
           <div>
             <h4 className="font-heading font-bold text-sm mb-4 text-gray-900">Services</h4>
             <ul className="space-y-2">
-              {services.map((s) => (
-                <li key={s}>
+              {services.map((s) =>
+              <li key={s}>
                   <a href="#services" className="text-sm text-gray-600 hover:text-primary transition-colors">
                     {s}
                   </a>
                 </li>
-              ))}
+              )}
             </ul>
           </div>
 
@@ -55,15 +55,15 @@ export default function Footer() {
             <p className="text-sm text-gray-600 mb-1">90806 83319 / 94890 56120</p>
             <p className="text-sm text-gray-600 mb-4">sabharisharts2020@gmail.com</p>
             <div className="flex gap-3">
-              {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:text-primary hover:bg-primary/10 transition-colors"
-                >
+              {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) =>
+              <a
+                key={i}
+                href="#"
+                className="w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-600 hover:text-primary hover:bg-primary/10 transition-colors">
+
                   <Icon size={16} />
                 </a>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -74,6 +74,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
