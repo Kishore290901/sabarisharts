@@ -30,7 +30,7 @@ export default function ContactSection() {
           <AnimatedSection>
             <div className="space-y-6">
               {[
-                { icon: Phone, label: "Phone", lines: ["90806 83319", "94890 56120"] },
+                { icon: Phone, label: "Phone", lines: ["90806 83319", "94890 56120", "87540 44951"] },
                 { icon: Mail, label: "Email", lines: ["sabharisharts2020@gmail.com"] },
                 { icon: MapPin, label: "Chennai", lines: ["Chennai"] },
                 { icon: MapPin, label: "Coimbatore", lines: ["Coimbatore"] },

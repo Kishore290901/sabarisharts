@@ -52,8 +52,10 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-heading font-bold text-sm mb-4 text-gray-900">Contact</h4>
-            <p className="text-sm text-gray-600 mb-1">90806 83319 / 94890 56120</p>
-            <p className="text-sm text-gray-600 mb-4">sabharisharts2020@gmail.com</p>
+            <p className="text-sm text-gray-600 mb-1">
+              Phone: 90806 83319 / 94890 56120 / 87540 44951
+            </p>
+            <p className="text-sm text-gray-600 mb-4">Email: sabharisharts2020@gmail.com</p>
             <div className="flex gap-3">
               {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) =>
               <a

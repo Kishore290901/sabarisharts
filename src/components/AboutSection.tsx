@@ -1,54 +1,46 @@
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { Megaphone, Printer, Palette, MapPin } from "lucide-react";
 
-const highlights = [
-  { icon: Megaphone, title: "Advertising Solutions", desc: "Outdoor, indoor & digital advertising across Tamil Nadu" },
-  { icon: Printer, title: "Printing Solutions", desc: "Premium quality offset & digital printing services" },
-  { icon: Palette, title: "Creative Designing", desc: "Branding, logos, social media & web design" },
-];
-
 export default function AboutSection() {
   return (
-    <section id="about" className="section-padding">
-      <div className="max-w-7xl mx-auto">
-        <AnimatedSection className="text-center mb-14">
-          <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">About Us</p>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Who We <span className="gradient-text">Are</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Sabharish Arts is a full-service advertising & branding agency with years of
-            experience delivering exceptional print, outdoor advertising, and creative design
-            solutions. We serve businesses across{" "}
-            <span className="text-foreground font-medium">Chennai</span> &{" "}
-            <span className="text-foreground font-medium">Coimbatore</span>.
+    <section id="about" className="section-padding bg-white">
+      <div className="max-w-5xl mx-auto">
+        <AnimatedSection className="text-center mb-10">
+          <p className="text-primary font-semibold text-xs sm:text-sm tracking-widest uppercase mb-3">
+            About Us
           </p>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+            Sabharish Arts
+          </h2>
         </AnimatedSection>
 
-        <div className="flex items-center justify-center gap-6 mb-12">
-          {["Chennai", "Coimbatore"].map((city) => (
-            <AnimatedSection key={city} delay={200}>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <MapPin size={16} className="text-accent" />
-                <span className="text-sm font-medium">{city}</span>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {highlights.map((item, i) => (
-            <AnimatedSection key={item.title} delay={i * 150}>
-              <div className="glass rounded-2xl p-8 text-center hover:neon-border transition-all duration-300 group">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors">
-                  <item.icon size={28} className="text-primary" />
-                </div>
-                <h3 className="font-heading font-bold text-lg mb-3">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+        <AnimatedSection className="bg-white rounded-3xl shadow-sm px-4 sm:px-8 md:px-10 py-6 sm:py-8 border border-gray-100">
+          <div className="text-left text-xs sm:text-sm md:text-base leading-relaxed text-gray-700 space-y-4">
+            <p>
+              Welcome to Sabharish Arts, a pioneering name in outdoor advertising with a rich history dating back to
+              1988. Originally established as Ilayanila Arts, our journey began with a focus on wall painting &amp;
+              hoarding advertising services, setting the benchmark for creativity and impact in the industry. Over the
+              years, we have evolved and expanded our offerings to become Sabharish Arts, synonymous with innovative
+              outdoor advertising solutions. Our commitment to quality and customer satisfaction remains unwavering as
+              we continue to push the boundaries of outdoor advertising.
+            </p>
+            <p>
+              At Sabharish Arts, we specialize in a wide range of outdoor advertising services tailored to meet the
+              diverse needs of our clients. Whether it&apos;s eye-catching billboards, dynamic digital displays,
+              impactful transit advertising, or strategic location-based promotions, we have the expertise and
+              experience to deliver results. Our team of dedicated professionals brings creativity, strategic thinking,
+              and technical excellence to every project, ensuring that your brand receives maximum exposure and
+              engagement. We believe in the power of outdoor advertising to captivate audiences and leave a lasting
+              impression.
+            </p>
+            <p>
+              Explore our website to discover more about our services, portfolio of successful campaigns, and how
+              Sabharish Arts can help elevate your brand through effective outdoor advertising. Partner with us to make
+              your mark in the world of outdoor advertising. Contact us today to discuss your advertising needs and let
+              Sabharish Arts be your trusted partner in outdoor advertising excellence.
+            </p>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
