@@ -15,7 +15,7 @@ export default function AboutSection() {
         </AnimatedSection>
 
         <AnimatedSection className="bg-white rounded-3xl shadow-sm px-4 sm:px-8 md:px-10 py-6 sm:py-8 border border-gray-100">
-          <div className="text-left text-xs sm:text-sm md:text-base leading-relaxed text-gray-700 space-y-4">
+          <div className="text-justify text-xs sm:text-sm md:text-base leading-relaxed text-gray-700 space-y-4">
             <p>
               Welcome to Sabharish Arts, a pioneering name in outdoor advertising with a rich history dating back to
               1988. Originally established as Ilayanila Arts, our journey began with a focus on wall painting &amp;
