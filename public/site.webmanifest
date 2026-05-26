@@ -1,0 +1,24 @@
+{
+  "name": "Sabharish Arts",
+  "short_name": "Sabharish Arts",
+  "icons": [
+    {
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1e3a8a",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
