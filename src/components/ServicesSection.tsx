@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { Images } from "lucide-react";
 import ServiceDetailModal from "@/components/ServiceDetailModal";
@@ -11,16 +11,6 @@ export default function ServicesSection() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const active = serviceCategories[activeTab];
-
-  const imageCounts = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const category of serviceCategories) {
-      for (const svc of category.services) {
-        counts.set(svc.slug, getServiceImages(svc.slug, svc.imageSlug).length);
-      }
-    }
-    return counts;
-  }, []);
 
   const openService = (svc: (typeof active.services)[0]) => {
     setSelectedService({
@@ -74,8 +64,9 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
           {active.services.map((svc, i) => {
-            const imageCount = imageCounts.get(svc.slug) ?? 1;
-            const cover = getServiceCover(svc.slug, svc.imageSlug);
+            const images = getServiceImages(svc.slug, svc.imageSlug);
+            const imageCount = images.length || 1;
+            const cover = getServiceCover(svc.slug, svc.imageSlug) ?? images[0];
 
             return (
               <AnimatedSection key={svc.slug} delay={i * 50}>
